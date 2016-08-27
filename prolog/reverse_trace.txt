@@ -1,0 +1,62 @@
+| ?- [reverse].
+[Compiling ./reverse]
+[reverse compiled, cpu time used: 0.0070 seconds]
+[reverse loaded]
+
+yes
+| ?- reverse([1,2,3,4,5],Result).
+
+Result = [5,4,3,2,1]
+
+yes
+| ?- trace
+.
+
+yes
+[trace]
+| ?- reverse([1,2,3,4,5],Result).
+   (0) Call: reverse([1,2,3,4,5],_h210) ? 
+   (1) Call: reverse([2,3,4,5],_h315) ? 
+   (2) Call: reverse([3,4,5],_h326) ? 
+   (3) Call: reverse([4,5],_h337) ? 
+   (4) Call: reverse([5],_h348) ? 
+   (5) Call: reverse([],_h359) ? 
+   (5) Exit: reverse([],[]) ? 
+   (6) Call: append([],[5],_h348) ? 
+   (6) Exit: append([],[5],[5]) ? 
+   (4) Exit: reverse([5],[5]) ? 
+   (7) Call: append([5],[4],_h337) ? 
+   (8) Call: append([],[4],_h418) ? 
+   (8) Exit: append([],[4],[4]) ? 
+   (7) Exit: append([5],[4],[5,4]) ? 
+   (3) Exit: reverse([4,5],[5,4]) ? 
+   (9) Call: append([5,4],[3],_h326) ? 
+   (10) Call: append([4],[3],_h467) ? 
+   (11) Call: append([],[3],_h481) ? 
+   (11) Exit: append([],[3],[3]) ? 
+   (10) Exit: append([4],[3],[4,3]) ? 
+   (9) Exit: append([5,4],[3],[5,4,3]) ? 
+   (2) Exit: reverse([3,4,5],[5,4,3]) ? 
+   (12) Call: append([5,4,3],[2],_h315) ? 
+   (13) Call: append([4,3],[2],_h537) ? 
+   (14) Call: append([3],[2],_h551) ? 
+   (15) Call: append([],[2],_h565) ? 
+   (15) Exit: append([],[2],[2]) ? 
+   (14) Exit: append([3],[2],[3,2]) ? 
+   (13) Exit: append([4,3],[2],[4,3,2]) ? 
+   (12) Exit: append([5,4,3],[2],[5,4,3,2]) ? 
+   (1) Exit: reverse([2,3,4,5],[5,4,3,2]) ? 
+   (16) Call: append([5,4,3,2],[1],_h210) ? 
+   (17) Call: append([4,3,2],[1],_h628) ? 
+   (18) Call: append([3,2],[1],_h642) ? 
+   (19) Call: append([2],[1],_h656) ? 
+   (20) Call: append([],[1],_h670) ? 
+   (20) Exit: append([],[1],[1]) ? 
+   (19) Exit: append([2],[1],[2,1]) ? 
+   (18) Exit: append([3,2],[1],[3,2,1]) ? 
+   (17) Exit: append([4,3,2],[1],[4,3,2,1]) ? 
+   (16) Exit: append([5,4,3,2],[1],[5,4,3,2,1]) ? 
+   (0) Exit: reverse([1,2,3,4,5],[5,4,3,2,1]) ? 
+
+Result = [5,4,3,2,1]
+

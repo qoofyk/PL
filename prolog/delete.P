@@ -1,0 +1,8 @@
+/* assume that all elements in List2 are in List1 and also the code I write below can handle the general case which means the elements in List2 doesn't necessarily be in List1*/
+
+delete([],_,[]).
+delete([Head|List_1],List_2,List_3) :- member(Head, List_2), delete(List_1, List_2, List_3).
+delete([Head|List_1], List_2, [Head|List_3]) :- delete(List_1, List_2, List_3).
+
+member(Element, [Element| _]).
+member(Element, [_|List]) :- member(Element, List).

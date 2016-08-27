@@ -1,0 +1,26 @@
+| ?- [suffix].
+[compiling ./suffix]
+[suffix compiled, cpu time used: 0.0040 seconds]
+[suffix loaded]
+
+yes
+| ?- append([1,2,3],[4,5],Result).
+
+Result = [1,2,3,4,5]
+
+yes
+| ?- trace.
+
+yes
+[trace]
+| ?- append([1,2,3],[4,5],Result).
+   (0) Call: append([1,2,3],[4,5],_h218) ? 
+   (1) Call: append([2,3],[4,5],_h325) ? 
+   (2) Call: append([3],[4,5],_h339) ? 
+   (3) Call: append([],[4,5],_h353) ? 
+   (3) Exit: append([],[4,5],[4,5]) ? 
+   (2) Exit: append([3],[4,5],[3,4,5]) ? 
+   (1) Exit: append([2,3],[4,5],[2,3,4,5]) ? 
+   (0) Exit: append([1,2,3],[4,5],[1,2,3,4,5]) ? 
+
+Result = [1,2,3,4,5]
